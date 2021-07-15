@@ -1,19 +1,38 @@
-import React from 'react';
-import { Card, CardContent, Grid } from '@material-ui/core';
+import React from "react";
+import classes from "./Article.css";
+import { Card, CardContent, Grid, Typography } from "@material-ui/core";
+import ArticleButtonLink from "./ArticleButtonLink";
 
-const Article = ({title, snippet}) => {
-    return (
-        <Grid container item xs={12} md={12}>
-            <Card variant="outlined">
-                <Grid item xs={8} md={8}>
-                    <CardContent>
-                        <h1>{title}</h1>
-                        <div>{snippet}</div>
-                    </CardContent>
-                </Grid>
-            </Card>
+const Article = ({ title, snippet, url }) => {
+  return (
+    <Grid item xs={12}>
+      <Card variant="outlined">
+        <Grid container alignItems="center">
+          <Grid item xs={12} sm={9} md={10}>
+            <CardContent>
+              <Typography variant="h5" gutterBottom>
+                {title}
+              </Typography>
+              <Typography
+                align="justify"
+                variant="body2"
+                dangerouslySetInnerHTML={{ __html: snippet }}
+              />
+              {/* <Typography
+                  align="justify"
+                  variant="body2"
+                >{snippet}</Typography> */}
+            </CardContent>
+          </Grid>
+          <Grid item xs={12} sm={3} md={2}>
+            <CardContent>
+              <ArticleButtonLink url={url} label="Open" />
+            </CardContent>
+          </Grid>
         </Grid>
-    );
+      </Card>
+    </Grid>
+  );
 };
 
 Article.propTypes = {};
