@@ -1,9 +1,10 @@
-import ArticleSearchContainer from './ArticleSearch/ArticleSearchContainer';
+import { Grid } from "@material-ui/core";
+import ArticleSearchContainer from "./ArticleSearch/ArticleSearchContainer";
 
 export const App = () => (
-    <div className="App">
-        <ArticleSearchContainer />
-    </div>
+  <Grid container justify="center">
+    <ArticleSearchContainer />
+  </Grid>
 );
 
 export default App;
