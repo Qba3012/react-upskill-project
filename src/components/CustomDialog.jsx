@@ -1,11 +1,15 @@
 import { Dialog, DialogContent, DialogContentText, DialogTitle } from "@material-ui/core";
+import { useContext } from "react";
+import ApiContext from "../store/api-context";
 
-const CustomDialog = ({ open, message, onClose}) => {
+const CustomDialog = () => {
+  const apiCtx = useContext(ApiContext);
+
   return (
-    <Dialog open={open} onClose={onClose}>
+    <Dialog open={apiCtx.isError} onClose={apiCtx.onDialogClose}>
       <DialogTitle>Something went wrong...</DialogTitle>
       <DialogContent>
-        <DialogContentText>{message}</DialogContentText>
+        <DialogContentText>{apiCtx.error}</DialogContentText>
       </DialogContent>
     </Dialog>
   );
