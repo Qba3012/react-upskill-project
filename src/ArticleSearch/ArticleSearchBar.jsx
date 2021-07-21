@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Grid,
   InputAdornment,
@@ -6,17 +6,20 @@ import {
   CircularProgress,
 } from "@material-ui/core";
 import { Search } from "@material-ui/icons";
+import ApiContext from "../store/api-context";
 
-function ArticleSearchBar({ onSearchTitleChange, searchText, isLoading }) {
+function ArticleSearchBar() {
+  const apiCtx = useContext(ApiContext);
+
   const inputChangeHandler = (event) => {
-    onSearchTitleChange(event.target.value);
+    apiCtx.onInputChange(event.target.value);
   };
 
   return (
     <Grid item container xs={12} alignItems="center">
       <TextField
         label="Search Article"
-        value={searchText}
+        value={apiCtx.searchInput}
         onChange={inputChangeHandler}
         size={"medium"}
         InputProps={{
@@ -27,7 +30,7 @@ function ArticleSearchBar({ onSearchTitleChange, searchText, isLoading }) {
           ),
         }}
       />
-      {isLoading && <CircularProgress size={30} />}
+      {apiCtx.isLoading && <CircularProgress size={30} />}
     </Grid>
   );
 }

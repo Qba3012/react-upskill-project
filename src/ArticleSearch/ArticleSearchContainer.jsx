@@ -1,67 +1,23 @@
-import React, { useEffect, useState } from "react";
 import ArticleSearchBar from "./ArticleSearchBar";
 import { Grid, Typography } from "@material-ui/core";
 import ArticlesList from "./ArticlesList";
-import { fetchArticles } from "../service/wikipediaAPI";
-import { useCallback } from "react";
 import CustomDialog from "../components/CustomDialog";
+import { useContext } from "react";
+import ApiContext from "../store/api-context";
 
 const ArticleSearchContainer = () => {
-  const [searchInput, setSearchInput] = useState("");
-  const [displayArticles, setDisplayArticles] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState("");
+  const apiCtx = useContext(ApiContext);
 
-  const fetchData = useCallback(async () => {
-    if (searchInput !== "") {
-      setIsLoading(true);
-
-      try {
-        await fetchArticles(searchInput, setDisplayArticles);
-      } catch (error) {
-        setError(error.message);
-      } finally {
-        setIsLoading(false);
-      }
-    } else {
-      setDisplayArticles([]);
-    }
-  }, [searchInput]);
-
-  useEffect(() => {
-    const identifier = setTimeout(() => {
-      fetchData();
-    }, 500);
-
-    return () => {
-      clearTimeout(identifier);
-    };
-  }, [searchInput, fetchData]);
-
-  const onDialogCloseHandler = () => {
-    setError("");
-  };
-
-  const displayPromptText = displayArticles.length === 0 && !isLoading;
-  const displayArticlesList = !isLoading && error === "";
-  const displayErrorDialog = !isLoading && error !== "";
+  const promptText = apiCtx.showPrompt && (
+      <Typography variant="h6">Search in Wikipedia</Typography>
+    );
 
   return (
     <Grid item container xs={10} md={8} spacing={5}>
-      <ArticleSearchBar
-        searchText={searchInput}
-        onSearchTitleChange={setSearchInput}
-        isLoading={isLoading}
-      />
-      {displayPromptText && (
-        <Typography variant="h6">Search in Wikipedia</Typography>
-      )}
-      {displayArticlesList && <ArticlesList articles={displayArticles} />}
-      <CustomDialog
-        open={displayErrorDialog}
-        message={error}
-        onClose={onDialogCloseHandler}
-      />
+      <ArticleSearchBar />
+      {promptText}
+      <ArticlesList />
+      <CustomDialog />
     </Grid>
   );
 };
