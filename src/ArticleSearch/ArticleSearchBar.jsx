@@ -1,19 +1,23 @@
 import React from "react";
-import { Grid, InputAdornment, TextField } from "@material-ui/core";
+import {
+  Grid,
+  InputAdornment,
+  TextField,
+  CircularProgress,
+} from "@material-ui/core";
 import { Search } from "@material-ui/icons";
 
-function ArticleSearchBar({ onSearchTitleChange, onBlurHandler, searchText }) {
+function ArticleSearchBar({ onSearchTitleChange, searchText, isLoading }) {
   const inputChangeHandler = (event) => {
     onSearchTitleChange(event.target.value);
   };
 
   return (
-    <Grid item xs={12}>
+    <Grid item container xs={12} alignItems="center">
       <TextField
         label="Search Article"
         value={searchText}
         onChange={inputChangeHandler}
-        onBlur={onBlurHandler}
         size={"medium"}
         InputProps={{
           endAdornment: (
@@ -23,6 +27,7 @@ function ArticleSearchBar({ onSearchTitleChange, onBlurHandler, searchText }) {
           ),
         }}
       />
+      {isLoading && <CircularProgress size={30} />}
     </Grid>
   );
 }
