@@ -1,54 +1,67 @@
 import React, { useEffect, useState } from "react";
 import ArticleSearchBar from "./ArticleSearchBar";
-import { articles } from "./resources/Articles";
 import { Grid, Typography } from "@material-ui/core";
 import ArticlesList from "./ArticlesList";
+import { fetchArticles } from "../service/wikipediaAPI";
+import { useCallback } from "react";
+import CustomDialog from "../components/CustomDialog";
 
 const ArticleSearchContainer = () => {
   const [searchInput, setSearchInput] = useState("");
-  const [displayArticles, setDisplayArticles] = useState(articles);
+  const [displayArticles, setDisplayArticles] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const filterArticles = (searchTitle) => {
-    const searchPhrase = searchTitle.trim().toLowerCase();
-    if (searchPhrase === "") {
-      return [];
+  const fetchData = useCallback(async () => {
+    if (searchInput !== "") {
+      setIsLoading(true);
+
+      try {
+        await fetchArticles(searchInput, setDisplayArticles);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setIsLoading(false);
+      }
     } else {
-      return articles.filter((article) =>
-        article.title.toLowerCase().includes(searchPhrase)
-      );
+      setDisplayArticles([]);
     }
-  };
-
-  const resetArticlesList = () => {
-    if (searchInput.trim() === "") {
-      setSearchInput("");
-      setDisplayArticles(articles);
-    }
-  };
+  }, [searchInput]);
 
   useEffect(() => {
-    if (searchInput !== "") {
-      const filteredArticles = filterArticles(searchInput);
-      const displayArticlesJSON = JSON.stringify(displayArticles);
-      const filteredArticlesJSON = JSON.stringify(filteredArticles);
-      if (displayArticlesJSON !== filteredArticlesJSON) {
-        setDisplayArticles(filteredArticles);
-      }
-    }
-    const displayArticlesJSON = JSON.stringify(displayArticles);
-  }, [searchInput, displayArticles]);
+    const identifier = setTimeout(() => {
+      fetchData();
+    }, 500);
+
+    return () => {
+      clearTimeout(identifier);
+    };
+  }, [searchInput, fetchData]);
+
+  const onDialogCloseHandler = () => {
+    setError("");
+  };
+
+  const displayPromptText = displayArticles.length === 0 && !isLoading;
+  const displayArticlesList = !isLoading && error === "";
+  const displayErrorDialog = !isLoading && error !== "";
 
   return (
     <Grid item container xs={10} md={8} spacing={5}>
       <ArticleSearchBar
         searchText={searchInput}
         onSearchTitleChange={setSearchInput}
-        onBlurHandler={resetArticlesList}
+        isLoading={isLoading}
       />
-      {displayArticles.length === 0 && (
-        <Typography variant="h6">No articles found</Typography>
+      {displayPromptText && (
+        <Typography variant="h6">Search in Wikipedia</Typography>
       )}
-      <ArticlesList articles={displayArticles} />
+      {displayArticlesList && <ArticlesList articles={displayArticles} />}
+      <CustomDialog
+        open={displayErrorDialog}
+        message={error}
+        onClose={onDialogCloseHandler}
+      />
     </Grid>
   );
 };

@@ -1,4 +1,3 @@
-import { memo } from "react";
 import Article from "./Article";
 
 const ArticlesList = ({ articles }) => {
@@ -16,4 +15,4 @@ const ArticlesList = ({ articles }) => {
   );
 };
 
-export default memo(ArticlesList);
+export default ArticlesList;
