@@ -1,18 +1,40 @@
 import {
   createContext,
+  FC,
   useCallback,
   useEffect,
   useReducer,
   useState,
 } from "react";
+import Article from "../models/Article";
 import { fetchArticles } from "../service/wikipediaAPI";
+
+type DisplayStateType = {
+  showPrompt: boolean;
+  showArticles: boolean;
+  articlesList: Article[];
+  isLoading: boolean;
+  error: string;
+  isError: boolean;
+};
+
+type ApiContextType = DisplayStateType & {
+  searchInput: string;
+  onInputChange: (input: string) => void;
+  onDialogClose: () => void;
+};
+
+type ActionType = {
+  type: string;
+  value?: any;
+};
 
 const SET_ERROR = "setError";
 const CLOSE_DIALOG = "closeDialog";
 const IS_LOADING = "isLoading";
 const SET_ARTICLES = "setArticles";
 
-const INITIAL_DISPLAY_STATE = {
+const INITIAL_DISPLAY_STATE: DisplayStateType = {
   showPrompt: true,
   showArticles: false,
   articlesList: [],
@@ -21,18 +43,12 @@ const INITIAL_DISPLAY_STATE = {
   isError: false,
 };
 
-const displayReducer = (state, action) => {
-  if (action.type === CLOSE_DIALOG) {
-    return { ...state, isError: false, error: "" };
-  }
-  if (action.type === IS_LOADING) {
-    return { ...state, isLoading: action.value };
-  }
-  if (action.type === SET_ERROR) {
-    return { ...state, isError: true, error: action.value, isLoading: false };
-  }
-  if (action.type === SET_ARTICLES) {
-    return {
+const displayReducer = ( state: DisplayStateType, action: ActionType ): DisplayStateType => {
+  switch(action.type) {
+    case CLOSE_DIALOG: return { ...state, isError: false, error: "" };
+    case IS_LOADING: return { ...state, isLoading: action.value };
+    case SET_ERROR: return { ...state, isError: true, error: action.value, isLoading: false };
+    case SET_ARTICLES: return {
       ...state,
       showArticles: action.value.length > 0,
       isError: false,
@@ -41,10 +57,11 @@ const displayReducer = (state, action) => {
       articlesList: action.value,
       showPrompt: action.value.length <= 0,
     };
+    default: return INITIAL_DISPLAY_STATE;
   }
 };
 
-export const ApiContextProvider = ({ children }) => {
+export const ApiContextProvider: FC = ({ children }) => {
   const [searchInput, setSearchInput] = useState("");
 
   const [displayState, dispatchDisplay] = useReducer(
@@ -56,7 +73,7 @@ export const ApiContextProvider = ({ children }) => {
     dispatchDisplay({ type: CLOSE_DIALOG });
   };
 
-  const dataHandler = (data) => {
+  const dataHandler = (data: Article[]) => {
     dispatchDisplay({ type: SET_ARTICLES, value: data });
   };
 
@@ -65,7 +82,8 @@ export const ApiContextProvider = ({ children }) => {
       dispatchDisplay({ type: IS_LOADING, value: true });
 
       try {
-        await fetchArticles(searchInput, dataHandler);
+        const data = await fetchArticles(searchInput);
+        dataHandler(data);
       } catch (error) {
         dispatchDisplay({ type: SET_ERROR, value: error.message });
       }
@@ -84,24 +102,22 @@ export const ApiContextProvider = ({ children }) => {
     };
   }, [searchInput, fetchData]);
 
+  const contextValue: ApiContextType = {
+    ...displayState,
+    searchInput: searchInput,
+    onInputChange: setSearchInput,
+    onDialogClose: closeDialog,
+  };
+
   return (
-    <ApiContext.Provider
-      value={{
-        ...displayState,
-        searchInput: searchInput,
-        onInputChange: setSearchInput,
-        onDialogClose: closeDialog,
-      }}
-    >
-      {children}
-    </ApiContext.Provider>
+    <ApiContext.Provider value={contextValue}>{children}</ApiContext.Provider>
   );
 };
 
-const ApiContext = createContext({
+const ApiContext = createContext<ApiContextType>({
   ...INITIAL_DISPLAY_STATE,
   searchInput: "",
-  onInputChange: (input) => {},
+  onInputChange: (input: string) => {},
   onDialogClose: () => {},
 });
 

@@ -1,9 +1,14 @@
-import React from "react";
-import classes from "./Article.css";
+import React, { FC } from "react";
 import { Card, CardContent, Grid, Typography } from "@material-ui/core";
 import ArticleButtonLink from "./ArticleButtonLink";
 
-const Article = ({ title, snippet, url }) => {
+type Props = {
+  title: string,
+  snippet: string,
+  url: string
+}
+
+const Article: FC<Props> = ({ title, snippet, url }) => {
   return (
     <Grid item xs={12}>
       <Card variant="outlined">
@@ -34,7 +39,5 @@ const Article = ({ title, snippet, url }) => {
     </Grid>
   );
 };
-
-Article.propTypes = {};
 
 export default Article;

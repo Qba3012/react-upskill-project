@@ -1,8 +1,8 @@
-import { useContext } from "react";
+import { FC, useContext } from "react";
 import ApiContext from "../store/api-context";
 import Article from "./Article";
 
-const ArticlesList = () => {
+const ArticlesList: FC = () => {
   const apiCtx = useContext(ApiContext);
 
   return (

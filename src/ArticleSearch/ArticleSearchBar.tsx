@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { ChangeEvent, FC, useContext } from "react";
 import {
   Grid,
   InputAdornment,
@@ -8,10 +8,10 @@ import {
 import { Search } from "@material-ui/icons";
 import ApiContext from "../store/api-context";
 
-function ArticleSearchBar() {
+const ArticleSearchBar: FC = () => {
   const apiCtx = useContext(ApiContext);
 
-  const inputChangeHandler = (event) => {
+  const inputChangeHandler = (event:ChangeEvent<HTMLInputElement>) => {
     apiCtx.onInputChange(event.target.value);
   };
 
@@ -34,7 +34,5 @@ function ArticleSearchBar() {
     </Grid>
   );
 }
-
-ArticleSearchBar.propTypes = {};
 
 export default ArticleSearchBar;
