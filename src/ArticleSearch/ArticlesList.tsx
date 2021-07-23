@@ -7,15 +7,14 @@ const ArticlesList: FC = () => {
 
   return (
     <>
-      {apiCtx.showArticles &&
-        apiCtx.articlesList.map((article) => (
-          <Article
-            key={article.pageid}
-            title={article.title}
-            snippet={article.snippet}
-            url={article.url}
-          />
-        ))}
+      {apiCtx.articlesList.map((article) => (
+        <Article
+          key={article.pageid}
+          title={article.title}
+          snippet={article.snippet}
+          url={article.url}
+        />
+      ))}
     </>
   );
 };

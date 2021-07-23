@@ -1,9 +1,9 @@
 import ArticleSearchBar from "./ArticleSearchBar";
 import { Grid, Typography } from "@material-ui/core";
-import ArticlesList from "./ArticlesList";
-import CustomDialog from "../components/CustomDialog";
-import { FC, useContext } from "react";
+import { FC, lazy, Suspense, useContext } from "react";
 import ApiContext from "../store/api-context";
+
+const ArticlesList = lazy(() => import("./ArticlesList"));
 
 const ArticleSearchContainer: FC = () => {
   const apiCtx = useContext(ApiContext);
@@ -16,8 +16,9 @@ const ArticleSearchContainer: FC = () => {
     <Grid item container xs={10} md={8} spacing={5}>
       <ArticleSearchBar />
       {promptText}
-      <ArticlesList />
-      <CustomDialog />
+      <Suspense fallback={<div></div>}>
+        {apiCtx.showArticles && <ArticlesList />}
+      </Suspense>
     </Grid>
   );
 };
