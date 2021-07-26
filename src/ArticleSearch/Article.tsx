@@ -1,5 +1,6 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { Card, CardContent, Grid, Typography } from "@material-ui/core";
+import classes from "./Article.module.css"
 import ArticleButtonLink from "./ArticleButtonLink";
 
 type Props = {
@@ -10,7 +11,7 @@ type Props = {
 
 const Article: FC<Props> = ({ title, snippet, url }) => {
   return (
-    <Grid item xs={12}>
+    <Grid item xs={12} component="li" className={classes.article}>
       <Card variant="outlined">
         <Grid container alignItems="center">
           <Grid item xs={12} sm={9} md={10}>
