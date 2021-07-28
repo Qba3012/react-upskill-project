@@ -1,0 +1,108 @@
+{
+  "data": {
+  "batchcomplete": "",
+  "continue": {
+    "sroffset": 10,
+    "continue": "-||"
+  },
+  "query": {
+    "searchinfo": {
+      "totalhits": 276675,
+      "suggestion": "text",
+      "suggestionsnippet": "text"
+    },
+    "search": [
+      {
+        "ns": 0,
+        "title": "Test",
+        "pageid": 11089416,
+        "size": 2608,
+        "wordcount": 264,
+        "snippet": "<span class=\"searchmatch\">Test</span>(s), <span class=\"searchmatch\">testing</span>, or <span class=\"searchmatch\">TEST</span> may refer to: <span class=\"searchmatch\">Test</span> (assessment), an educational assessment intended to measure the respondents' knowledge or other abilities",
+        "timestamp": "2021-05-23T21:53:34Z"
+      },
+      {
+        "ns": 0,
+        "title": "Software testing",
+        "pageid": 29090,
+        "size": 93702,
+        "wordcount": 11086,
+        "snippet": "Software <span class=\"searchmatch\">testing</span> is an investigation conducted to provide stakeholders with information about the quality of the software product or service under <span class=\"searchmatch\">test</span>. Software",
+        "timestamp": "2021-07-19T20:28:40Z"
+      },
+      {
+        "ns": 0,
+        "title": "This is a test",
+        "pageid": 5069303,
+        "size": 258,
+        "wordcount": 56,
+        "snippet": "This is a <span class=\"searchmatch\">test</span> may refer to: The <span class=\"searchmatch\">testing</span> of the Emergency Alert System The <span class=\"searchmatch\">testing</span> of the former Emergency Broadcast System This disambiguation page lists",
+        "timestamp": "2020-11-29T03:29:00Z"
+      },
+      {
+        "ns": 0,
+        "title": "This Is Not a Test!",
+        "pageid": 1858823,
+        "size": 19475,
+        "wordcount": 1313,
+        "snippet": "This Is Not a <span class=\"searchmatch\">Test</span>! is the fifth studio album by American rapper Missy Elliott, released by The Goldmind Inc. and Elektra Records on November 25, 2003",
+        "timestamp": "2021-05-25T09:30:11Z"
+      },
+      {
+        "ns": 0,
+        "title": ".test",
+        "pageid": 2249147,
+        "size": 2472,
+        "wordcount": 246,
+        "snippet": "The name <span class=\"searchmatch\">test</span> is a top-level domain (TLD) that is intended for use in the <span class=\"searchmatch\">testing</span> of software. The name was reserved by the Internet Engineering Task Force",
+        "timestamp": "2021-07-19T06:13:48Z"
+      },
+      {
+        "ns": 0,
+        "title": "Chi-squared test",
+        "pageid": 226680,
+        "size": 21194,
+        "wordcount": 2287,
+        "snippet": "A chi-squared <span class=\"searchmatch\">test</span>, also written as χ2 <span class=\"searchmatch\">test</span>, is a statistical hypothesis <span class=\"searchmatch\">test</span> that is valid to perform when the <span class=\"searchmatch\">test</span> statistic is chi-squared distributed",
+        "timestamp": "2021-06-16T21:55:45Z"
+      },
+      {
+        "ns": 0,
+        "title": "Test and test-and-set",
+        "pageid": 2084574,
+        "size": 2529,
+        "wordcount": 290,
+        "snippet": "In computer science, the <span class=\"searchmatch\">test</span>-and-set CPU instruction is used to implement mutual exclusion in multiprocessor environments. Although a correct lock can",
+        "timestamp": "2021-07-18T23:10:20Z"
+      },
+      {
+        "ns": 0,
+        "title": "COVID-19 testing",
+        "pageid": 63204759,
+        "size": 167744,
+        "wordcount": 19169,
+        "snippet": "COVID-19 <span class=\"searchmatch\">testing</span> involves analyzing samples to assess the current or past presence of SARS-CoV-2. The two main branches detect either the presence of",
+        "timestamp": "2021-07-21T13:11:54Z"
+      },
+      {
+        "ns": 0,
+        "title": "TeST Gliders",
+        "pageid": 24884283,
+        "size": 2602,
+        "wordcount": 164,
+        "snippet": "<span class=\"searchmatch\">TeST</span> Gliders is a manufacturer of ultralight sailplanes and motorgliders based in Brno, Czech Republic. <span class=\"searchmatch\">TeST</span> TST-1 Alpin <span class=\"searchmatch\">TeST</span> TST-3 Alpin T <span class=\"searchmatch\">TeST</span> TST-5",
+        "timestamp": "2018-02-22T16:19:10Z"
+      },
+      {
+        "ns": 0,
+        "title": "Turing test",
+        "pageid": 21391751,
+        "size": 84797,
+        "wordcount": 10500,
+        "snippet": "The Turing <span class=\"searchmatch\">test</span>, originally called the imitation game by Alan Turing in 1950, is a <span class=\"searchmatch\">test</span> of a machine's ability to exhibit intelligent behaviour equivalent",
+        "timestamp": "2021-07-09T02:46:17Z"
+      }
+    ]
+  }
+}
+}
