@@ -9,7 +9,7 @@ type Props = {
   url: string
 }
 
-const Article: FC<Props> = ({ title, snippet, url }) => {
+const ArticleComponent: FC<Props> = ({ title, snippet, url }) => {
   return (
     <Grid item xs={12} component="li" className={classes.article}>
       <Card variant="outlined">
@@ -41,4 +41,4 @@ const Article: FC<Props> = ({ title, snippet, url }) => {
   );
 };
 
-export default Article;
+export default ArticleComponent;

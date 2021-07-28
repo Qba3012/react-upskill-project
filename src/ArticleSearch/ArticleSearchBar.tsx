@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, useContext } from "react";
+import { ChangeEvent, FC, useEffect, useState } from "react";
 import {
   Grid,
   InputAdornment,
@@ -6,20 +6,38 @@ import {
   CircularProgress,
 } from "@material-ui/core";
 import { Search } from "@material-ui/icons";
-import ApiContext from "../store/api-context";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../store";
+import { articlesActions } from "../store/articles-slice";
+import { fetchArticles } from "../service/api-actions";
 
 const ArticleSearchBar: FC = () => {
-  const apiCtx = useContext(ApiContext);
+  const dispatch = useDispatch();
+  const [searchInput, setSearchInput] = useState("");
+  const isLoading = useSelector((state: RootState) => state.ui.isLoading);
 
-  const inputChangeHandler = (event:ChangeEvent<HTMLInputElement>) => {
-    apiCtx.onInputChange(event.target.value);
+  const inputChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+    setSearchInput(event.target.value);
   };
+
+  useEffect(() => {
+    const identifier = setTimeout(() => {
+      if (searchInput === "") {
+        dispatch(articlesActions.setArticles({ articles: [] }));
+      } else {
+        dispatch(fetchArticles(searchInput));
+      }
+    }, 500);
+
+    return () => {
+      clearTimeout(identifier);
+    };
+  }, [searchInput, dispatch]);
 
   return (
     <Grid item container xs={12} alignItems="center">
       <TextField
         label="Search Article"
-        value={apiCtx.searchInput}
         onChange={inputChangeHandler}
         size={"medium"}
         InputProps={{
@@ -30,9 +48,9 @@ const ArticleSearchBar: FC = () => {
           ),
         }}
       />
-      {apiCtx.isLoading && <CircularProgress size={30} />}
+      {isLoading && <CircularProgress size={30} />}
     </Grid>
   );
-}
+};
 
 export default ArticleSearchBar;

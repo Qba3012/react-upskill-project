@@ -1,4 +1,4 @@
-import { ARTICLE_URL } from "../service/wikipediaAPI";
+import { ARTICLE_URL } from "../service/api-actions";
 
 class Article {
   pageid: string;

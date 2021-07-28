@@ -1,15 +1,17 @@
 import { Grid } from "@material-ui/core";
-import { FC, useContext } from "react";
-import ApiContext from "../store/api-context";
-import Article from "./Article";
+import { FC } from "react";
+import Article from "../models/Article";
+import ArticleComponent from "./ArticleComponent";
 
-const ArticlesList: FC = () => {
-  const apiCtx = useContext(ApiContext);
+type Props = {
+  articles: Article[];
+};
 
+const ArticlesList: FC<Props> = ({ articles }) => {
   return (
     <Grid item container spacing={5} component="ul">
-      {apiCtx.articlesList.map((article) => (
-        <Article
+      {articles.map((article) => (
+        <ArticleComponent
           key={article.pageid}
           title={article.title}
           snippet={article.snippet}

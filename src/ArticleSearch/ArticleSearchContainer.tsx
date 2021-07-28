@@ -1,24 +1,25 @@
 import ArticleSearchBar from "./ArticleSearchBar";
 import { Grid, Typography } from "@material-ui/core";
-import { FC, lazy, Suspense, useContext } from "react";
-import ApiContext from "../store/api-context";
+import { FC, lazy, Suspense } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../store";
 
 const ArticlesList = lazy(() => import("./ArticlesList"));
 
 const ArticleSearchContainer: FC = () => {
-  const apiCtx = useContext(ApiContext);
+  const articles = useSelector((state: RootState) => state.articles.articles);
 
-  const promptText = apiCtx.showPrompt && (
-    <Typography variant="h6">Search in Wikipedia</Typography>
-  );
+  const content =
+    articles.length === 0 ? (
+      <Typography variant="h6">Search in Wikipedia</Typography>
+    ) : (
+      <ArticlesList articles={articles} />
+    );
 
   return (
     <Grid item container xs={10} md={8} spacing={5}>
       <ArticleSearchBar />
-      {promptText}
-      <Suspense fallback={<div></div>}>
-        {apiCtx.showArticles && <ArticlesList />}
-      </Suspense>
+      <Suspense fallback={<div></div>}>{content}</Suspense>
     </Grid>
   );
 };

@@ -4,17 +4,24 @@ import {
   DialogContentText,
   DialogTitle,
 } from "@material-ui/core";
-import { useContext, FC } from "react";
-import ApiContext from "../store/api-context";
+import { FC } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../store";
+import { uiActions } from "../store/ui-slice";
 
 const CustomDialog: FC = () => {
-  const apiCtx = useContext(ApiContext);
+  const dispatch = useDispatch();
+  const error = useSelector((state: RootState) => state.ui.error);
+
+  const onDialogClose = () => {
+    dispatch(uiActions.closeDialog());
+  };
 
   return (
-    <Dialog open={apiCtx.isError} onClose={apiCtx.onDialogClose}>
+    <Dialog open={error !== ""} onClose={onDialogClose}>
       <DialogTitle>Something went wrong...</DialogTitle>
       <DialogContent>
-        <DialogContentText>{apiCtx.error}</DialogContentText>
+        <DialogContentText>{error}</DialogContentText>
       </DialogContent>
     </Dialog>
   );
