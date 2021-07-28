@@ -2,9 +2,10 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import axios from "axios";
 import "@testing-library/jest-dom/extend-expect";
-import { ApiContextProvider } from "../store/api-context";
 import ArticleSearchBar from "./ArticleSearchBar";
 import TEST_DATA from "../wikipediaTestData.json";
+import { Provider } from "react-redux";
+import store from "../store";
 
 jest.mock("axios");
 const mockedAxios = axios as jest.Mocked<typeof axios>;
@@ -13,9 +14,9 @@ const SPINNER_CLASS = ".MuiCircularProgress-svg";
 describe("<ArticleSearchBar> component", () => {
   beforeEach(() => {
     render(
-      <ApiContextProvider>
+      <Provider store={store}>
         <ArticleSearchBar />
-      </ApiContextProvider>
+      </Provider>
     );
   });
 

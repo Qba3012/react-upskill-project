@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import Article from "./Article";
+import Article from "./ArticleComponent";
 
 const TITLE = "TEST TITLE";
 const URL = "TEST URL";
