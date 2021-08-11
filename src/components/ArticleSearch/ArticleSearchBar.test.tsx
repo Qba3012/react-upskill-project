@@ -2,9 +2,9 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import axios from "axios";
 import "@testing-library/jest-dom/extend-expect";
-import { ApiContextProvider } from "../store/api-context";
+import { ApiContextProvider } from "../../store/api-context";
 import ArticleSearchBar from "./ArticleSearchBar";
-import TEST_DATA from "../wikipediaTestData.json";
+import TEST_DATA from "../../wikipediaTestData.json";
 
 jest.mock("axios");
 const mockedAxios = axios as jest.Mocked<typeof axios>;

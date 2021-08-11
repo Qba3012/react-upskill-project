@@ -5,7 +5,7 @@ import {
   DialogTitle,
 } from "@material-ui/core";
 import { useContext, FC } from "react";
-import ApiContext from "../store/api-context";
+import ApiContext from "../../store/api-context";
 
 const CustomDialog: FC = () => {
   const apiCtx = useContext(ApiContext);

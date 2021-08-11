@@ -1,0 +1,16 @@
+.header {
+  margin-bottom: 1rem;
+}
+
+.button {
+  text-decoration: none;
+}
+
+.button * {
+  color: white;
+}
+
+.active *{
+  text-decoration: underline;
+  color: rgb(179, 170, 255);
+}
