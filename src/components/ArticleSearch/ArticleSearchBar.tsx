@@ -6,7 +6,7 @@ import {
   CircularProgress,
 } from "@material-ui/core";
 import { Search } from "@material-ui/icons";
-import ApiContext from "../store/api-context";
+import ApiContext from "../../store/api-context";
 
 const ArticleSearchBar: FC = () => {
   const apiCtx = useContext(ApiContext);

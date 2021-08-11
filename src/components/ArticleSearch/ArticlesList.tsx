@@ -1,6 +1,6 @@
 import { Grid } from "@material-ui/core";
 import { FC, useContext } from "react";
-import ApiContext from "../store/api-context";
+import ApiContext from "../../store/api-context";
 import Article from "./Article";
 
 const ArticlesList: FC = () => {

@@ -1,9 +1,9 @@
-import ArticleSearchBar from "./ArticleSearchBar";
+import ArticleSearchBar from "../components/ArticleSearch/ArticleSearchBar";
 import { Grid, Typography } from "@material-ui/core";
 import { FC, lazy, Suspense, useContext } from "react";
 import ApiContext from "../store/api-context";
 
-const ArticlesList = lazy(() => import("./ArticlesList"));
+const ArticlesList = lazy(() => import("../components/ArticleSearch/ArticlesList"));
 
 const ArticleSearchContainer: FC = () => {
   const apiCtx = useContext(ApiContext);

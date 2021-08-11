@@ -1,13 +1,28 @@
-import { Grid } from "@material-ui/core";
 import { FC } from "react";
-import ArticleSearchContainer from "./ArticleSearch/ArticleSearchContainer";
-import CustomDialog from "./components/CustomDialog";
+import { Redirect, Route, Switch } from "react-router-dom";
+import ArticleSearchContainer from "./pages/ArticleSearchContainer";
+import CustomDialog from "./components/Dialog/CustomDialog";
+import Layout from "./layout/Layout";
+import Home from "./pages/Home";
 
 const App: FC = () => (
-  <Grid container justify="center">
-    <ArticleSearchContainer />
+  <Layout>
+    <Switch>
+      <Route path="/" exact>
+        <Home />
+      </Route>
+      <Route path="/wiki-search" exact>
+        <ArticleSearchContainer />
+      </Route>
+      <Route path="/location-search" exact>
+        <Redirect to="/" />
+      </Route>
+      <Route path="*">
+        <Redirect to="/" />
+      </Route>
+    </Switch>
     <CustomDialog />
-  </Grid>
+  </Layout>
 );
 
 export default App;
