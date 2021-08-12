@@ -6,7 +6,7 @@ const Layout: FC = ({ children }) => {
   return (
     <>
       <MainHeader />
-      <Grid container justify="center">
+      <Grid container justify="center" component="main">
         {children}
       </Grid>
     </>
