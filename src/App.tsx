@@ -1,9 +1,10 @@
 import { FC } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import ArticleSearchContainer from "./pages/ArticleSearchContainer";
-import CustomDialog from "./components/Dialog/CustomDialog";
+import CustomDialog from "./components/UI/CustomDialog";
 import Layout from "./layout/Layout";
 import Home from "./pages/Home";
+import Address from "./pages/Address";
 
 const App: FC = () => (
   <Layout>
@@ -15,7 +16,7 @@ const App: FC = () => (
         <ArticleSearchContainer />
       </Route>
       <Route path="/location-search" exact>
-        <Redirect to="/" />
+        <Address />
       </Route>
       <Route path="*">
         <Redirect to="/" />
