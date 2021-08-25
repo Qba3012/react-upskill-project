@@ -4,7 +4,7 @@ import ArticleSearchContainer from "./ArticleSearchContainer";
 import userEvent from "@testing-library/user-event";
 import axios from "axios";
 import TEST_DATA from "../wikipediaTestData.json";
-import { ApiContextProvider } from "../store/api-context";
+import { WikiContextProvider } from "../store/wiki-context";
 
 jest.mock("axios");
 const mockedAxios = axios as jest.Mocked<typeof axios>;
@@ -12,9 +12,9 @@ const mockedAxios = axios as jest.Mocked<typeof axios>;
 describe("<ArticleSearchContainer> component", () => {
   beforeEach(() => {
       render(
-        <ApiContextProvider>
+        <WikiContextProvider>
           <ArticleSearchContainer />
-        </ApiContextProvider>
+        </WikiContextProvider>
       );
   });
 

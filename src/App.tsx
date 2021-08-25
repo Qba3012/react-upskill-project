@@ -5,6 +5,8 @@ import CustomDialog from "./components/UI/CustomDialog";
 import Layout from "./layout/Layout";
 import Home from "./pages/Home";
 import Address from "./pages/Address";
+import { WikiContextProvider } from "./store/wiki-context";
+import { LocationContextProvider } from "./store/location-context";
 
 const App: FC = () => (
   <Layout>
@@ -13,10 +15,14 @@ const App: FC = () => (
         <Home />
       </Route>
       <Route path="/wiki-search" exact>
-        <ArticleSearchContainer />
+        <WikiContextProvider>
+          <ArticleSearchContainer />
+        </WikiContextProvider>
       </Route>
       <Route path="/location-search" exact>
-        <Address />
+        <LocationContextProvider>
+          <Address />
+        </LocationContextProvider>
       </Route>
       <Route path="*">
         <Redirect to="/" />

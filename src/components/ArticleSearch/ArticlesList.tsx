@@ -1,14 +1,14 @@
 import { Grid } from "@material-ui/core";
 import { FC, useContext } from "react";
-import ApiContext from "../../store/api-context";
+import WikiContext from "../../store/wiki-context";
 import Article from "./Article";
 
 const ArticlesList: FC = () => {
-  const apiCtx = useContext(ApiContext);
+  const wikiCtx = useContext(WikiContext);
 
   return (
     <Grid item container spacing={5} component="ul">
-      {apiCtx.articlesList.map((article) => (
+      {wikiCtx.articlesList.map((article) => (
         <Article
           key={article.pageid}
           title={article.title}

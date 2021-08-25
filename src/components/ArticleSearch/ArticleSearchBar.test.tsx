@@ -2,7 +2,7 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import axios from "axios";
 import "@testing-library/jest-dom/extend-expect";
-import { ApiContextProvider } from "../../store/api-context";
+import { WikiContextProvider } from "../../store/wiki-context";
 import ArticleSearchBar from "./ArticleSearchBar";
 import TEST_DATA from "../../wikipediaTestData.json";
 
@@ -13,9 +13,9 @@ const SPINNER_CLASS = ".MuiCircularProgress-svg";
 describe("<ArticleSearchBar> component", () => {
   beforeEach(() => {
     render(
-      <ApiContextProvider>
+      <WikiContextProvider>
         <ArticleSearchBar />
-      </ApiContextProvider>
+      </WikiContextProvider>
     );
   });
 

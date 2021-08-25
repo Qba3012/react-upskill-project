@@ -5,16 +5,16 @@ import {
   DialogTitle,
 } from "@material-ui/core";
 import { useContext, FC } from "react";
-import ApiContext from "../../store/api-context";
+import UIContext from "../../store/ui-context";
 
 const CustomDialog: FC = () => {
-  const apiCtx = useContext(ApiContext);
+  const uiCtx = useContext(UIContext);
 
   return (
-    <Dialog open={apiCtx.isError} onClose={apiCtx.onDialogClose}>
+    <Dialog open={uiCtx.isError} onClose={uiCtx.closeDialog}>
       <DialogTitle>Something went wrong...</DialogTitle>
       <DialogContent>
-        <DialogContentText>{apiCtx.error}</DialogContentText>
+        <DialogContentText>{uiCtx.error}</DialogContentText>
       </DialogContent>
     </Dialog>
   );
