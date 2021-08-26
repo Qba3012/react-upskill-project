@@ -9,7 +9,7 @@ type Props = {
 
 const AddressFields: FC<Props> = ({ address }) => {
   return (
-    <Card>
+    <Card style={{margin: 20}}>
       <CardHeader title="Selected Address" titleTypographyProps={{ variant: "h5", color: "primary" }} />
       <CardContent>
         <Grid item container xs={12} spacing={5} style={{ margin: 0 }}>

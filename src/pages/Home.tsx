@@ -6,11 +6,13 @@ const Home: FC = () => {
   return (
     <Card className={classes.card}>
       <CardContent>
-        <Typography variant="h4" color="primary">Welcome to</Typography>
-        <Typography variant="h2">Wikipedia Finder</Typography>
+        <Typography variant="h4" color="primary">
+          Welcome to
+        </Typography>
+        <Typography variant="h2">OmniFinder</Typography>
       </CardContent>
       <CardMedia
-        image="./images/wikipedia.png"
+        image="./images/logo.png"
         component="img"
         alt="Wikipedia"
         title="Wikipedia"
