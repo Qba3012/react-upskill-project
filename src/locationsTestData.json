@@ -1,0 +1,93 @@
+[
+  {
+    "description": "Test antigénique - Centre de dépistage Covid-19 (RDV sur Doctolib), Rue Saint-Sauveur, Paris, France",
+    "matched_substrings": [{ "length": 4, "offset": 0 }],
+    "place_id": "ChIJIbTUBh1v5kcRQs6zICWjJbs",
+    "reference": "ChIJIbTUBh1v5kcRQs6zICWjJbs",
+    "structured_formatting": {
+      "main_text": "Test antigénique - Centre de dépistage Covid-19 (RDV sur Doctolib)",
+      "main_text_matched_substrings": [{ "length": 4, "offset": 0 }],
+      "secondary_text": "Rue Saint-Sauveur, Paris, France"
+    },
+    "terms": [
+      { "offset": 0, "value": "Test antigénique - Centre de dépistage Covid-19 (RDV sur Doctolib)" },
+      { "offset": 68, "value": "Rue Saint-Sauveur" },
+      { "offset": 87, "value": "Paris" },
+      { "offset": 94, "value": "France" }
+    ],
+    "types": ["health", "point_of_interest", "establishment"]
+  },
+  {
+    "description": "Teststraße Aula der Wissenschaften, Wollzeile, Vienna, Austria",
+    "matched_substrings": [{ "length": 4, "offset": 0 }],
+    "place_id": "ChIJbbwo0egHbUcREqwOYooaYjE",
+    "reference": "ChIJbbwo0egHbUcREqwOYooaYjE",
+    "structured_formatting": {
+      "main_text": "Teststraße Aula der Wissenschaften",
+      "main_text_matched_substrings": [{ "length": 4, "offset": 0 }],
+      "secondary_text": "Wollzeile, Vienna, Austria"
+    },
+    "terms": [
+      { "offset": 0, "value": "Teststraße Aula der Wissenschaften" },
+      { "offset": 36, "value": "Wollzeile" },
+      { "offset": 47, "value": "Vienna" },
+      { "offset": 55, "value": "Austria" }
+    ],
+    "types": ["doctor", "health", "point_of_interest", "establishment"]
+  },
+  {
+    "description": "Testaccio, Rome, Metropolitan City of Rome, Italy",
+    "matched_substrings": [{ "length": 4, "offset": 0 }],
+    "place_id": "ChIJE47T5i5gLxMRhiCxCUAFq4Q",
+    "reference": "ChIJE47T5i5gLxMRhiCxCUAFq4Q",
+    "structured_formatting": {
+      "main_text": "Testaccio",
+      "main_text_matched_substrings": [{ "length": 4, "offset": 0 }],
+      "secondary_text": "Rome, Metropolitan City of Rome, Italy"
+    },
+    "terms": [
+      { "offset": 0, "value": "Testaccio" },
+      { "offset": 11, "value": "Rome" },
+      { "offset": 17, "value": "Metropolitan City of Rome" },
+      { "offset": 44, "value": "Italy" }
+    ],
+    "types": ["natural_feature", "establishment"]
+  },
+  {
+    "description": "Teststraße Austria Center Vienna, Bruno-Kreisky-Platz, Vienna, Austria",
+    "matched_substrings": [{ "length": 4, "offset": 0 }],
+    "place_id": "ChIJE1nKDNgHbUcREXT03qnsYrI",
+    "reference": "ChIJE1nKDNgHbUcREXT03qnsYrI",
+    "structured_formatting": {
+      "main_text": "Teststraße Austria Center Vienna",
+      "main_text_matched_substrings": [{ "length": 4, "offset": 0 }],
+      "secondary_text": "Bruno-Kreisky-Platz, Vienna, Austria"
+    },
+    "terms": [
+      { "offset": 0, "value": "Teststraße Austria Center Vienna" },
+      { "offset": 34, "value": "Bruno-Kreisky-Platz" },
+      { "offset": 55, "value": "Vienna" },
+      { "offset": 63, "value": "Austria" }
+    ],
+    "types": ["doctor", "health", "point_of_interest", "establishment"]
+  },
+  {
+    "description": "Teststraße Floridsdorfer Brücke, Parkplatz Donauinsel, Floridsdorfer Brücke, Vienna, Austria",
+    "matched_substrings": [{ "length": 4, "offset": 0 }],
+    "place_id": "ChIJA8HmgosHbUcRZA7U-FTTWs8",
+    "reference": "ChIJA8HmgosHbUcRZA7U-FTTWs8",
+    "structured_formatting": {
+      "main_text": "Teststraße Floridsdorfer Brücke",
+      "main_text_matched_substrings": [{ "length": 4, "offset": 0 }],
+      "secondary_text": "Parkplatz Donauinsel, Floridsdorfer Brücke, Vienna, Austria"
+    },
+    "terms": [
+      { "offset": 0, "value": "Teststraße Floridsdorfer Brücke" },
+      { "offset": 33, "value": "Parkplatz Donauinsel" },
+      { "offset": 55, "value": "Floridsdorfer Brücke" },
+      { "offset": 77, "value": "Vienna" },
+      { "offset": 85, "value": "Austria" }
+    ],
+    "types": ["doctor", "health", "point_of_interest", "establishment"]
+  }
+]

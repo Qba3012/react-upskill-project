@@ -12,13 +12,13 @@ describe("<Home> component", () => {
     expect(title).toBeInTheDocument();
   });
 
-  test("should render 'Wikipedia Finder' title", () => {
-    const title = screen.getByText("Wikipedia Finder");
+  test("should render 'OmniFinder' title", () => {
+    const title = screen.getByText("OmniFinder");
     expect(title).toBeInTheDocument();
   });
 
   test("should render Wikipedia logo", () => {
     const image = document.querySelector("img") as HTMLImageElement;
-    expect(image.src).toContain("wikipedia.png");
+    expect(image.src).toContain("logo.png");
   });
 });

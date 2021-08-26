@@ -9,6 +9,7 @@ type Props = {
 const AddressField: FC<Props> = ({ label, value }) => {
   return (
     <TextField
+      id={label}
       variant="outlined"
       fullWidth
       label={label}
