@@ -16,10 +16,14 @@ const autocompleteService = { current: null };
 const geocoderService = { current: null };
 
 export const fetchLocationDetails = (placeId: string, callback: (results?: any) => void) => {
-  if ((window as any).google && !geocoderService.current) {
-    geocoderService.current = new (window as any).google.maps.Geocoder();
+  if ((window as any).google) {
+    if (!geocoderService.current) {
+      geocoderService.current = new (window as any).google.maps.Geocoder();
+    }
+    (geocoderService.current as any).geocode({ placeId: placeId }, callback);
+  } else {
+    throw new Error("Serwis lokalizacyjny niedostępny");
   }
-  (geocoderService.current as any).geocode({ placeId: placeId }, callback);
 };
 
 export const fetchLocations = (input: string, callback: (results?: PlaceType[]) => void) => {
