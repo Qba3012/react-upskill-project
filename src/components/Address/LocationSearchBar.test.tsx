@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom/extend-expect";
-import { LocationContextProvider } from "../../store/location-context";
+import { LocationContextProvider } from "../../store/address-context";
 import LocationSearchBar from "./LocationSearchBar";
 
 describe("<LocationSearchBar> component", () => {

@@ -2,10 +2,10 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import AddressFields from "./AddressFields";
 import TEST_DATA from "../../locationDetailsTestData.json";
-import Address from "../../models/Address";
+import Contact from "../../models/Address";
 import GeocoderResult from "../../models/GeocoderResult";
 
-const ADDRESS = new Address(TEST_DATA[0] as any as GeocoderResult);
+const ADDRESS = new Contact(TEST_DATA[0] as any as GeocoderResult);
 
 describe("<AddressFields> component", () => {
   beforeEach(() => {

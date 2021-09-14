@@ -6,7 +6,7 @@ import Layout from "./layout/Layout";
 import Home from "./pages/Home";
 import Address from "./pages/Address";
 import { WikiContextProvider } from "./store/wiki-context";
-import { LocationContextProvider } from "./store/location-context";
+import { LocationContextProvider } from "./store/address-context";
 
 const App: FC = () => (
   <Layout>
@@ -19,7 +19,7 @@ const App: FC = () => (
           <ArticleSearchContainer />
         </WikiContextProvider>
       </Route>
-      <Route path="/location-search" exact>
+      <Route path="/addresses" exact>
         <LocationContextProvider>
           <Address />
         </LocationContextProvider>

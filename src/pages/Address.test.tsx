@@ -3,7 +3,7 @@ import "@testing-library/jest-dom/extend-expect";
 import userEvent from "@testing-library/user-event";
 import TEST_DATA from "../locationsTestData.json";
 import DETAILED_TEST_DATA from "../locationDetailsTestData.json";
-import { LocationContextProvider } from "../store/location-context";
+import { LocationContextProvider } from "../store/address-context";
 import PlaceType from "../models/PlaceType";
 import Address from "./Address";
 import GeocoderResult from "../models/GeocoderResult";
