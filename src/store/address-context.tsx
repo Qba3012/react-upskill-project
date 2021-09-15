@@ -80,7 +80,7 @@ const addressReducer = (state: AddressContextType, action: ActionType): AddressC
   }
 };
 
-export const LocationContextProvider: FC = ({ children }) => {
+export const AddressContextProvider: FC = ({ children }) => {
   const uiContext = useContext(UIContext);
   const [addressState, dispatch] = useReducer(addressReducer, INITIAL_ADDRESS_STATE);
 

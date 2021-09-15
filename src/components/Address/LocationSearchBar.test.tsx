@@ -1,21 +1,21 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom/extend-expect";
-import { LocationContextProvider } from "../../store/address-context";
+import { AddressContextProvider } from "../../store/address-context";
 import LocationSearchBar from "./LocationSearchBar";
 
 describe("<LocationSearchBar> component", () => {
   beforeEach(() => {
     render(
-      <LocationContextProvider>
+      <AddressContextProvider>
         <LocationSearchBar />
-      </LocationContextProvider>
+      </AddressContextProvider>
     );
   });
 
   test("should render correct label", () => {
     const searchBox = screen.getByRole("textbox");
-    expect(searchBox.parentElement!.previousSibling).toHaveTextContent("Location Search");
+    expect(searchBox.parentElement!.previousSibling).toHaveTextContent("Address Search");
   });
 
 
