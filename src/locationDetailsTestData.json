@@ -1,0 +1,31 @@
+[
+  {
+    "address_components": [
+      { "long_name": "7", "short_name": "7", "types": ["street_number"] },
+      { "long_name": "Rue Saint-Sauveur", "short_name": "Rue Saint-Sauveur", "types": ["route"] },
+      { "long_name": "Paris", "short_name": "Paris", "types": ["locality", "political"] },
+      {
+        "long_name": "Département de Paris",
+        "short_name": "Département de Paris",
+        "types": ["administrative_area_level_2", "political"]
+      },
+      { "long_name": "Île-de-France", "short_name": "IDF", "types": ["administrative_area_level_1", "political"] },
+      { "long_name": "France", "short_name": "FR", "types": ["country", "political"] },
+      { "long_name": "75002", "short_name": "75002", "types": ["postal_code"] }
+    ],
+    "formatted_address": "7 Rue Saint-Sauveur, 75002 Paris, France",
+    "geometry": {
+      "location": { "lat": 48.8657545, "lng": 2.3497433 },
+      "location_type": "ROOFTOP",
+      "viewport": {
+        "south": 48.86444831970851,
+        "west": 2.348412619708498,
+        "north": 48.8671462802915,
+        "east": 2.351110580291502
+      }
+    },
+    "place_id": "ChIJIbTUBh1v5kcRQs6zICWjJbs",
+    "plus_code": { "compound_code": "V88X+8V Paris, France", "global_code": "8FW4V88X+8V" },
+    "types": ["establishment", "health", "point_of_interest"]
+  }
+]
